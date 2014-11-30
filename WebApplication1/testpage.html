@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width-device-width,initial-scale=1.0" />
+    <title></title>
+    <script src="bootstrap/jquery-1.7.min.js"></script>
+    <!--<script src="bootstrap/jquery-1.7-vsdoc.js"></script>-->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <style>
+        body {
+            background: url("Iamge/BingWallpaper-2014-05-08.jpg");
+        }
+        /*@media(max-width:760px) { body{background:#ff0000; } }*/
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="page-header">布局<small>使用bootStrap网格系统布局网页</small></h1>
+        <div class="row-fluid">
+            <div class="span4">
+                <h2 class="page-header">区块一</h2>
+                <p>这是第二篇博客将会解释如何高效使用 WebStorm 正确学习 JS。如果你还没读过，我建议你读一下我的第一篇博客， Bitbucket, WebStorm and Learning Javascript Properly，这篇博客解释了在学习JS时，要如何使用 BitBucket/SmartGit/WebStorm。我写了第一篇博客以回应 Richard Bovell 绝佳的文字。在这第二篇博客中，我将更详细的解释如何高效使用 WebStorm 正确学习 JS（aka js）。这个第二篇博客是应 Richard 要求的。请注意第一篇博客不是必须的，但是建议阅读。希望这篇文章能对任何努力学习JS的人有价值。任何问题或更正请评论。感谢你的时间。</p>
+            </div>
+            <div class="span4">
+                <h2 class="page-header">区块二</h2>
+                <p>首先从这里下载书的源代码。以防链接无效，就Google一下“professional javascript for web developers 3rd edition source code”。下载“Full Code Download”，大约 3.5 MB。文件名是“9781118026694_download.zip”。解压文件然后你得到“9781118026694_download”。重命名文件夹为professional-javascript。文件夹中包含一系列子文件夹（例如，Ch03，Cho4 等等）。</p>
+            </div>
+            <div class="span4">
+                <h2 class="page-header">区块三</h2>
+                <p>
+                    1.所以你已经设置好BitBucket/SmartGit/WebStorm。你已经添加一个文本文件用于测试并且成功地用SmartGit在bitbucket.org上确认了。
+                    2.在Finder中，复制或移动文件夹“professional-javascript”到 ~/codes/javascript-proper/ ，这样你就得到 ~/codes/javascript-proper/professional-javascript/。
+                    3.切换到 SmartGit，然后你会看到文件夹。
+                    4.Stage(待译)，然后提交文件。
+                </p>
+                <div class="row-fluid">
+                    <div class="span2">5.切换到 WebStorm。如果你完全按照之前的教程做了</div>
+                    <div class="span2">6.跳到View，run，tweak and run 一个示例源代码。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>#</th>
+                <th>下载量</th>
+                <th>图书出版</th>
+                <th>外链数</th>
+            </tr>
+            <tr>
+                <td>worldPress</td>
+                <td>6400</td>
+                <td>1100</td>
+                <td>654</td>
+            </tr>
+            <tr>
+                <td>文化局</td>
+                <td>65</td>
+                <td>42432</td>
+                <td>2455</td>
+            </tr>
+            <tr>
+                <td>出版社</td>
+                <td>55</td>
+                <td>522</td>
+                <td>2854</td>
+            </tr>
+            <tr>
+                <td>外文</td>
+                <td>4242</td>
+                <td>4242</td>
+                <td>4253</td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <h1>单选和复选框</h1>
+        <label class="checkbox">复选框</label>
+        <label class="checkbox">
+            <input type="checkbox" name="chkb" value="1" />1
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" name="chkb" value="2" />2
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" name="chkb" value="3" />3
+        </label>
+    </div>
+    <div class="container">
+        //name属性区别是不是在一个组，name属性一致单选按钮只能选择这个组里面的一个
+        <label class="radio">单选框</label>
+        <label class="radio"><input type="radio" name="number" value="4" />4</label>
+        <label class="radio"><input type="radio" name="number" value="5" />5</label>
+        <label class="radio"><input type="radio" name="number" value="6" />6</label>
+
+    </div>
+
+    <form class="container">
+        <fieldset>
+            <div class="row">
+                <div class="span4"></div>
+                <div class="span4">
+                    <div class="control-group">
+                        <div class="control-label">
+                            <div class="controls">
+                                <label for="userName">用户名</label>
+                                <input placeholder="用户名、邮箱" type="text" id="userName" />
+                                <p class="help-block">请输入用户名</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <div class="controls">
+                                <label for="userPassword">密码</label>
+                                <input class="controls" placeholder="****" type="password" id="userPassword" />
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" class="btn-primary" value="提交" />
+                </div>
+                <div class="span4"></div>
+
+            </div>
+        </fieldset>
+
+    </form>
+
+    <div class="btn-toolbar">
+        <div class="btn-group">
+            <a class="btn" href="http://www.baidu.com"><i class="icon-shopping-cart"></i> 百度一下</a>
+            <input class="btn-large btn-success" type="button" value="右对齐">
+            <a class="btn-mini"><i class="icon-share"></i> 分享</a>
+            <input class="btn-inverse" type="button" value="左对齐" />
+        </div>
+        <div class="btn-group">
+            <input class="arrow" type="button" value="first" />
+            <input class="badge-success" type="button" value="first" />
+            <input class="bar-danger" type="button" value="first" />
+            <input class="bottom" type="button" value="first" />
+        </div>
+    </div>
+    一个完整的可伸缩的下拉菜单
+    <div class="container">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="#">导航菜单</a>
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li><a href="#">项目一</a></li>
+                        <li><a href="#">项目二</a></li>
+                    </ul>
+                </div>
+                <form class="navbar-search">
+                    <input type="text" class="search-query" />
+                    <input type="button" value="搜索" class="btn-primary" />
+                </form>
+                <ul class="nav pull-right">
+                    <li><a>登录</a></li>
+                    <li><a>注册</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    选项卡
+    <div class="container">
+        <h1 class="page-header">选项卡</h1>
+        <div class="tabbable tabs-left">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-target="tab">WordPress</a></li>
+                <li><a href="#tab2" data-toggle="tab">网页设计</a></li>
+                <li><a href="#tab3" data-toggle="tab">终于出来了</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tabl"><p>Worldpress</p></div>
+                <div class="tab-pane" id="tab2"><p>这个网页设计啊</p></div>
+                <div class="tab-pane" id="tab3"><p>有点累了啊</p></div>
+            </div>
+        </div>
+    </div>
+    《标准》
+    <!--<ul id="mytab" class="nav nav-tabs">
+                                   <li class="active"><a href="#home" data-toggle="tab">首页</a></li>
+                                   <li><a href="#profile" data-toggle="tab">介绍</a></li>
+                                   <li><a href="#messages" data-toggle="tab">消息</a></li>
+                                   <li><a href="#settings" data-toggle="tab">设置</a></li>
+                               </ul>
+
+                               <div class="tab-content">
+                                   <div class="tab-pane active" id="home">111</div>
+                                   <div class="tab-pane" id="profile">2222</div>
+                                   <div class="tab-pane" id="messages">333</div>
+                                   <div class="tab-pane" id="settings">444.</div>
+                               </div>-->
+    缩略图
+    <div class="container">
+        <ul class="thumbnails">
+            <li><a class="thumbnail" href="#"><img src="http://placehold.it/260×180" /></a></li>
+            <li><a class="thumbnail" href="#"><img src="http://placehold.it/260×180" /></a></li>
+            <li><a class="thumbnail" href="#"><img src="http://placehold.it/260×180" /></a></li>
+            <li><a class="thumbnail" href="#"><img src="http://placehold.it/260×180" /></a></li>
+            <li><a class="thumbnail" href="#"><img src="http://placehold.it/260×180" /></a></li>
+            <li><a class="thumbnail" href="#"><img src="http://placehold.it/260×180" /></a></li>
+            <li><a class="thumbnail" href="#"><img src="http://placehold.it/520×360" /></a></li>
+        </ul>
+    </div>
+    <!--对话框-->
+    <div class="container">
+        <h1>对话框</h1>
+        <a href="#login" class="btn btn-primary" data-toggle="modal">点击登录</a>
+        <div class="modal hide " id="login">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">×</a>
+                <h2>用户登录</h2>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="userName">用户名</label>
+                            <input type="text" id="userName" placeholder="用户名" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="userPsw">密码</label>
+                            <input type="password" id="userPsw" placeholder="***" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="button" id="btnLogin" value="登录" />
+                <input type="button" id="btnCancle" value="取消" />
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

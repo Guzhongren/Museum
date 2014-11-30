@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="../bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="../bootstrap/Scripts/jquery-2.1.1.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+    <link href="../Style/Main.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://localhost/arcgis_js_v38_sdk/arcgis_js_api/library/3.8/3.8/js/dojo/dijit/themes/tundra/tundra.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost/arcgis_js_v38_sdk/arcgis_js_api/library/3.8/3.8/js/esri/css/esri.css" />
+    <!--<script src="JavaScript/jsapi_vsdoc12_v38.js"></script>-->
+    <!--<script type="text/javascript">djConfig = { isDebug: true };</script>-->
+    <script type="text/Javascript" src="http://localhost/arcgis_js_v38_sdk/arcgis_js_api/library/3.8/3.8/init.js">
+</script>
+    <script type="text/javascript">
+       
+        var map;
+        var dynamicLayer;
+        var baseUrl ;
+        require(["esri/map", "esri/layers/ArcGISDynamicMapServiceLayer", "dojo/domReady!"],
+            function (Map, DynamicLayer) {
+                map = new Map("map", {
+                    center: [-56.049, 38.485],
+                    zoom: 3,
+                    basemap: "streets",
+                    slider: false,
+                });
+                map.on("Load", function () {
+                    console.log("已加载地图");
+                })
+            });
+
+        //界面操作
+       
+
+    </script>
+</head>
+<body>
+    <div id="top" >
+        <div >
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#">甘肃省博物馆</a>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li><a href="#" ></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#" id="Func1">功能一</a></li>
+                            <li><a href="#" id="Func2">功能二</a></li>
+                            <li><a href="#" id="Func3">功能三</a></li>
+                        </ul>
+                    </div>
+                    <form class="navbar-search">
+                        <input class="search-query" type="text">
+                        <input class="btn-success" type="button" value="搜索">
+                    </form>
+                    <ul class="nav pull-right">
+                        <li><a>告诉我们</a></li>
+                        <li><a>GIS</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--<label style="font-size:2.3em"></label>
+
+        <input type="button" id="btnFunc1" value="功能一" />
+        <a>功能二<label id="lbFun2"></label></a>
+        <label id="lbFun3"><a>功能三</a></label>
+        
+        <input type="button" id="btnFunc2" value="功能二" />
+        <input type="button" id="btnFunc3" value="功能三" />-->
+    </div>
+
+    <div id="map">
+        <div id="Tab1">Tab1</div>
+        <div id="Tab2">Tab2</div>
+        <div id="Tab3">Tab3</div>
+    </div>
+
+
+
+    <script src="../Script/MapScript.js"></script>
+
+    <script type="text/javascript">
+
+    </script>
+</body>
+</html>
