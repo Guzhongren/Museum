@@ -72,7 +72,7 @@
         </div>
 
         <!--<label style="font-size:2.3em"></label>
-
+            
         <input type="button" id="btnFunc1" value="功能一" />
         <a>功能二<label id="lbFun2"></label></a>
         <label id="lbFun3"><a>功能三</a></label>
@@ -82,7 +82,25 @@
     </div>
 
     <div id="map">
-        <div id="Tab1">Tab1</div>
+        <div id="Tab1">
+            <font color="DarkBlue"><h3>查询条件</h3></font>
+            <form method="get" id="SearchForm">
+                <div><label class="selectDataTime">文物年代</label><select id="selectDataTime">
+                    <option>隋朝</option>
+                    <option>唐朝</option>
+                    <option>宋朝</option>
+                    <option>元朝</option>
+                    <option>明朝</option>
+                    <option>清朝</option>
+                    <option>民国</option>
+                    <option>现代</option>
+                    <option>当代</option>
+                    </select>
+                </div>
+                <div><label class="selectCulturalCelic">文物名称</label><input type="text" id="culturlRelicName" /></div>
+                <input type="button" id="submitInfo" value="查询"  />
+            </form>
+        </div>
         <div id="Tab2">Tab2</div>
         <div id="Tab3">Tab3</div>
     </div>
@@ -92,6 +110,14 @@
     <script src="../Script/MapScript.js"></script>
 
     <script type="text/javascript">
+        $("#submitInfo").click(function () {
+            $("#Tab1").slideToggle();
+            var dateTimeValue = $("#selectDataTime option:selected").text();
+            var culturalRelicValue = $("#culturlRelicName").val();
+            var respContent = $.ajax({ url: "../ASHX/SearchCultural_relic.ashx?DateTimeToAshx=" + dateTimeValue + "&culturalRelicToAshx=" + culturalRelicValue, async: true });
+            //执行出UI
+            
+        });
 
     </script>
 </body>

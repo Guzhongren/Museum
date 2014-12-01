@@ -11,7 +11,7 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebApplication1</RootNamespace>
+    <RootNamespace>ModalHelper</RootNamespace>
     <AssemblyName>WebApplication1</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bootstrap\img\Thumbs.db" />
+    <Content Include="ASHX\SearchCultural_relic.ashx" />
     <None Include="bootstrap\Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="bootstrap\Scripts\jquery-2.1.1.js" />
     <Content Include="bootstrap\Scripts\jquery-2.1.1.min.js" />
@@ -88,9 +89,25 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ASHX\SearchCultural_relic.ashx.cs">
+      <DependentUpon>SearchCultural_relic.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{3f704de3-b542-4f2b-9572-d57847593d88}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DLL\DLL.csproj">
+      <Project>{089c4d96-3078-4e56-aa49-08e581581487}</Project>
+      <Name>DLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModalHelper\ModalHelper.csproj">
+      <Project>{5a43240a-a52a-4613-9038-827f41a8d901}</Project>
+      <Name>ModalHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
