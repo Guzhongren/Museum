@@ -14,7 +14,4 @@
         $("#Tab1").css("display", 'none');
         $("#Tab2").css("display", 'none');
     });
-
-
 });
-
