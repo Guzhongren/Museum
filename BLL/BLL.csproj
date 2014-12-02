@@ -42,10 +42,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DLL\DAL.csproj">
-      <Project>{089c4d96-3078-4e56-aa49-08e581581487}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ModalHelper\ModalHelper.csproj">
       <Project>{5a43240a-a52a-4613-9038-827f41a8d901}</Project>
       <Name>ModalHelper</Name>
