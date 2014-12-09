@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="Dojo-1.8.3" type="javaScript">
+    <properties>
+      <option name="frameworkName" value="Dojo" />
+      <option name="frameworkVersion" value="1.8.3" />
+      <sourceFilesUrls>
+        <item url="file://$USER_HOME$/.WebStorm8/system/extLibs/http_download.dojotoolkit.org_release-1.8.3_dojo.js.uncompressed.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$USER_HOME$/.WebStorm8/system/extLibs/http_download.dojotoolkit.org_release-1.8.3_dojo.js.uncompressed.js" />
+    </CLASSES>
+    <DOCUMENTATION>
+      <root url="http://dojotoolkit.org/api" />
+    </DOCUMENTATION>
+    <SOURCES />
+  </library>
+</component>

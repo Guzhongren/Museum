@@ -11,30 +11,28 @@
     <link rel="stylesheet" type="text/css" href="http://localhost/arcgis_js_v38_sdk/arcgis_js_api/library/3.8/3.8/js/dojo/dijit/themes/tundra/tundra.css" />
     <link rel="stylesheet" type="text/css" href="http://localhost/arcgis_js_v38_sdk/arcgis_js_api/library/3.8/3.8/js/esri/css/esri.css" />
     <!--<script src="JavaScript/jsapi_vsdoc12_v38.js"></script>-->
-    <!--<script type="text/javascript">djConfig = { isDebug: true };</script>-->
+    <script type="text/javascript">djConfig = { isDebug: true };</script>
     <script type="text/Javascript" src="http://localhost/arcgis_js_v38_sdk/arcgis_js_api/library/3.8/3.8/init.js">
 </script>
     <script type="text/javascript">
-       
+        //加载地图
         var map;
         var dynamicLayer;
         var baseUrl ;
         require(["esri/map", "esri/layers/ArcGISDynamicMapServiceLayer", "dojo/domReady!"],
-            function (Map, DynamicLayer) {
-                map = new Map("map", {
-                    center: [-56.049, 38.485],
-                    zoom: 3,
-                    basemap: "streets",
-                    slider: false,
+                function (Map, DynamicLayer) {
+                    map = new Map("map", {
+                        center: [-56.049, 38.485],
+                        zoom: 14,
+                        basemap: "streets",
+                        slider: false
+                    });
+                    map.on("Load", function () {
+                        consolse.log("已加载地图");
+                    })
                 });
-                map.on("Load", function () {
-                    console.log("已加载地图");
-                })
-            });
 
         //界面操作
-       
-
     </script>
 </head>
 <body>
@@ -70,19 +68,15 @@
                 </div>
             </div>
         </div>
-
-        <!--<label style="font-size:2.3em"></label>
-
-        <input type="button" id="btnFunc1" value="功能一" />
-        <a>功能二<label id="lbFun2"></label></a>
-        <label id="lbFun3"><a>功能三</a></label>
-        
-        <input type="button" id="btnFunc2" value="功能二" />
-        <input type="button" id="btnFunc3" value="功能三" />-->
     </div>
 
     <div id="map">
-        <div id="Tab1">Tab1</div>
+        <div id="Tab1" >
+            <h1 align="center">查询功能</h1>
+            <div ><label for="txtQueryTime"><h3>查询年代</h3></label><select id='txtQueryTime' class="QueryControl"><option selected="selected">隋</option><option>唐</option><option>宋</option><option>元</option><option>明</option><option>清</option></select></div>
+            <div ><label for="txtQueryRelic"><h3>查询名称</h3></label><select id="txtQueryRelic" class="QueryControl"></select></div>
+            <div><input type="button" id="btnSearchRelic" class="btn btn-block" value="搜索"/></div>
+        </div>
         <div id="Tab2">Tab2</div>
         <div id="Tab3">Tab3</div>
     </div>
@@ -90,9 +84,68 @@
 
 
     <script src="../Script/MapScript.js"></script>
-
     <script type="text/javascript">
+        require(['dojo/dom',
+                'dojo/dom-construct',
+                'dojo/_base/lang',
+            'dojo/domReady!'],function(dom,domConstruct,lang){
+                $("#txtQueryTime").on("change",lang.hitch(this,function (){
+                $("#txtQueryRelic").clearData();
+                switch($("#txtQueryTime option:selected").text()){
+                    case "隋":domConstruct.place("<option>隋一</option><option>隋一</option><option>隋一</option><option>隋一</option><option>隋一</option><option>隋一</option>","txtQueryRelic");
+                        break;
+                    case "唐":domConstruct.place("<option>唐一</option><option>唐一</option><option>唐一</option><option>唐一</option><option>唐一</option><option>唐一</option>","txtQueryRelic");
+                        break;
+                    case "宋":domConstruct.place("<option>宋一</option><option>宋一</option><option>宋一</option><option>宋一</option><option>宋一</option><option>宋一</option>","txtQueryRelic");
+                        break;
+                    default:domConstruct.place("<option>默认一</option><option>默认一</option><option>默认一</option><option>默认一</option><option>默认一</option><option>默认一</option>","txtQueryRelic");
+                        break;
+                }
+            }));
+
+            function loadDetailInfo(relicName){
+
+            }
+        });
+
 
     </script>
+
+<!--    <script type="text/javascript">
+
+        require(['dojo/dom-construct',
+                'dojo/dom',
+                'dojo/on',
+                'dojo/_base/lang',
+                'dojo/domReady!'
+        ],function(domConstruct,dom,on,lang){
+            //得到选中的值
+            //onchange='loadHistoryRelics(this.options[this.options.selectedIndex].text)'
+
+            //domConstruct.create('div',{});
+            //domConstruct.place("<div><strogn><h3>查询年代</h3></strogn><select id='slctTime' onchange='loadHistoryRelics(this.options[this.options.selectedIndex].text)'  ><option>隋</option><option>唐</option><option>宋</option><option>元</option><option>明</option><option>清</option></select></div>","divQueryThing");
+            var selectObj = dom.byId("testSelect");
+            on(selectObj,"change",test);
+
+        });
+
+        function test(value){
+            alert(value);
+        }
+        //选中option的处理函数
+        function loadHistoryRelics(relicTime){
+            switch(relicTime){
+                case "隋":domConstruct.place("<select id='sui_relic'><option>物品一</option><option>物品二</option><option>物品三</option><option>物品四</option></select>");
+                    break;
+                case "唐":domConstruct.place("<select id='tang_relic'><option>唐一</option><option>唐一</option><option>唐一</option><option>唐一</option><option>唐一</option><option>唐一</option></select>");
+                    break;
+  /*              case "宋": var song_detial=document.createElement("<select id='song_relic'><option>宋一</option><option>宋一</option><option>宋一</option><option>宋一</option><option>宋一</option></select>");
+                    $("divQueryThing1").append(song_detial);
+                    break;*/
+                default :domConstruct.place("<select id='default_relic'><option>默认</option><option>默认</option><option>默认</option><option>默认</option><option>默认</option></select>")
+                    break;
+            }
+        }
+    </script>-->
 </body>
 </html>

@@ -1,4 +1,7 @@
-﻿$(function () {
+﻿
+
+
+$(function () {
     $("#Func1").click(function () {
         $("#Tab1").slideToggle();
         $("#Tab2").css("display", 'none');
@@ -15,3 +18,4 @@
         $("#Tab2").css("display", 'none');
     });
 });
+
