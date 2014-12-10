@@ -11,7 +11,7 @@ namespace ModalHelper
 {
      public static class SqlHelper
     {
-        private static readonly string configStr = ConfigurationManager.ConnectionStrings["connstr"].ToString();
+         private static readonly string configStr = ConfigurationManager.ConnectionStrings["constr"].ToString();
         public static int ExecuteNoQuery(string sql, params SqlParameter[] parameters)
         {
             using (SqlConnection conn = new SqlConnection(configStr))

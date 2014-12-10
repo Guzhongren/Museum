@@ -16,7 +16,7 @@
     z-index:2;
     height:94%;
     width:25%;
-    margin-left:30px;
+    margin-left:55px;
     opacity:0.8;
     background-color:#387038;
 }
@@ -51,4 +51,10 @@
 }
 .QueryControl{
     width:100%;
+}
+#divLocateButton{
+    position:absolute;
+    margin-left:20px;
+    margin-top:90px;
+    z-index:5
 }

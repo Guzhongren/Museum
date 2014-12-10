@@ -12,8 +12,8 @@ namespace DAL
     public class ResultModalList
     {
         private List<ModalHelper.CulturalRelicModal> list = new List<ModalHelper.CulturalRelicModal>();
-        private string sql = "select * from TableX where 年代=@CulturalRelicDataTime and 名称=@CulturalRelicName";
-        public List<ModalHelper.CulturalRelicModal> getResult(string sql,List<string> sqlParams)
+        private string sql = "select * from HistoricalRelic where cultrualRelicBirthDataTime=@CultrualRelicBirthDataTime and culturalRelicName=@CulturalRelicName";
+        public List<ModalHelper.CulturalRelicModal> getResult(List<string> sqlParams)
         {
             DataTable dataTable = ModalHelper.SqlHelper.ExecuteDataTabel(sql, new SqlParameter("@CulturalRelicDataTime",sqlParams[0]),
                                                                               new SqlParameter("@CulturalRelicName",sqlParams[1]));

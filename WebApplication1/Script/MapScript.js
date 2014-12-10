@@ -1,6 +1,4 @@
-﻿
-
-
+﻿//控制Tab
 $(function () {
     $("#Func1").click(function () {
         $("#Tab1").slideToggle();
@@ -18,4 +16,8 @@ $(function () {
         $("#Tab2").css("display", 'none');
     });
 });
-
+//Tab1搜索按钮
+//require([
+//    'dojo/dom',
+//    'dojo/domReady!',
+//], function (dom) { });
