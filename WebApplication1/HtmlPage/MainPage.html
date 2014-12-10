@@ -57,7 +57,7 @@
             <h1 align="center">查询功能</h1>
             <div ><label for="txtQueryTime"><h3>查询年代</h3></label><select id='txtQueryTime' class="QueryControl"><option selected="selected">隋</option><option>唐</option><option>宋</option><option>元</option><option>明</option><option>清</option></select></div>
             <div ><label for="txtQueryRelic"><h3>查询名称</h3></label><select id="txtQueryRelic" class="QueryControl"></select></div>
-            <div><input type="button" id="btnSearchRelic" class="btn btn-block" value="搜索"/></div>
+            <div><input type="button" id="btnSearchRelic"  class="btn btn-block" value="搜索"/></div>
         </div>
         <div id="Tab2">Tab2</div>
         <div id="Tab3">Tab3</div>
@@ -67,13 +67,24 @@
             $("#btnSearchRelic").on('click', function () {
                 var relicTimeToAshx = $("#txtQueryTime option:selected").text();
                 var relicThingToAshx = $("#txtQueryRelic option:selected").text();
-                $.ajax("../Ashx/SearchHistoryRelic.ashx?RelicTimeToAshx=" + relicTimeToAshx + "&RelicThingToAshx=" + relicThingToAshx, {
-                    type: "post",
-                    dataType: "json",
-                    success: function (restext) {
+                if (relicTimeToAshx == "" || relicThingToAshx == "")
+                {
+                    $("btnSearchRelic").css("disabled", "false");
+                    alert("请先选择年代和文物名称！");
+                }
+                else {
+                    $.ajax("../Ashx/SearchHistoryRelic.ashx?RelicTimeToAshx=" + relicTimeToAshx + "&RelicThingToAshx=" + relicThingToAshx, {
+                        type: "post",
+                        //输出为json,
+                        dataType: "json",
+                        success: function (restext) {
+                            alert(restext);
 
-                    }
-                })
+
+                        }
+                    })
+                }
+                
             })
         });
     </script>

@@ -6,12 +6,15 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Npgsql;
+
 
 namespace ModalHelper
 {
      public static class SqlHelper
     {
-         private static readonly string configStr = ConfigurationManager.ConnectionStrings["constr"].ToString();
+        #region MSSQL方案
+        private static readonly string configStr = ConfigurationManager.ConnectionStrings["constr"].ToString();
         public static int ExecuteNoQuery(string sql, params SqlParameter[] parameters)
         {
             using (SqlConnection conn = new SqlConnection(configStr))
@@ -38,21 +41,40 @@ namespace ModalHelper
                 }
             }
         }
-        public static DataTable ExecuteDataTabel(string sql, params SqlParameter[] parameters)
+        //public static DataTable ExecuteDataTabel(string sql, params SqlParameter[] parameters)
+        //{
+        //    using (SqlConnection conn = new SqlConnection(configStr))
+        //    {
+        //        conn.Open();
+        //        using (SqlCommand cmd = conn.CreateCommand())
+        //        {
+        //            cmd.CommandText = sql;
+        //            cmd.Parameters.AddRange(parameters);
+        //            SqlDataAdapter adater = new SqlDataAdapter(cmd);
+        //            DataSet dataSet = new DataSet();
+        //            adater.Fill(dataSet);
+        //            return dataSet.Tables[0];
+        //        }
+        //    }
+        //} 
+        #endregion
+        #region PostgreSQl方案
+        public static DataTable ExecuteDataTabel(string sql, params NpgsqlParameter[] parameters)
         {
-            using (SqlConnection conn = new SqlConnection(configStr))
+            using (NpgsqlConnection conn = new NpgsqlConnection(configStr))
             {
                 conn.Open();
-                using (SqlCommand cmd = conn.CreateCommand())
+                using (NpgsqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = sql;
                     cmd.Parameters.AddRange(parameters);
-                    SqlDataAdapter adater = new SqlDataAdapter(cmd);
+                    NpgsqlDataAdapter adater = new NpgsqlDataAdapter(cmd);
                     DataSet dataSet = new DataSet();
                     adater.Fill(dataSet);
                     return dataSet.Tables[0];
                 }
             }
-        }
+        } 
+        #endregion
     }
 }

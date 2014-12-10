@@ -11,7 +11,7 @@ require(['dojo/dom',
         switch($("#txtQueryTime option:selected").text()){
             case "隋":domConstruct.place("<option>隋一</option><option>隋一</option><option>隋一</option><option>隋一</option><option>隋一</option><option>隋一</option>","txtQueryRelic");
                 break;
-            case "唐":domConstruct.place("<option>唐一</option><option>唐一</option><option>唐一</option><option>唐一</option><option>唐一</option><option>唐一</option>","txtQueryRelic");
+            case "唐":domConstruct.place("<option>和田玉</option><option>唐一</option><option>唐一</option><option>唐一</option><option>唐一</option><option>唐一</option>","txtQueryRelic");
                 break;
             case "宋":domConstruct.place("<option>宋一</option><option>宋一</option><option>宋一</option><option>宋一</option><option>宋一</option><option>宋一</option>","txtQueryRelic");
                 break;

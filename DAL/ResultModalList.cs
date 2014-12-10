@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Npgsql;
 
 namespace DAL
 {
@@ -15,8 +16,8 @@ namespace DAL
         private string sql = "select * from HistoricalRelic where cultrualRelicBirthDataTime=@CultrualRelicBirthDataTime and culturalRelicName=@CulturalRelicName";
         public List<ModalHelper.CulturalRelicModal> getResult(List<string> sqlParams)
         {
-            DataTable dataTable = ModalHelper.SqlHelper.ExecuteDataTabel(sql, new SqlParameter("@CulturalRelicDataTime",sqlParams[0]),
-                                                                              new SqlParameter("@CulturalRelicName",sqlParams[1]));
+            DataTable dataTable = ModalHelper.SqlHelper.ExecuteDataTabel(sql, new NpgsqlParameter("@CulturalRelicDataTime",sqlParams[0]),
+                                                                              new NpgsqlParameter("@CulturalRelicName", sqlParams[1]));
 
             int rowCount = dataTable.Rows.Count;
             if (rowCount <= 0)
@@ -29,7 +30,7 @@ namespace DAL
                 {
                     CulturalRelicModal culturalRelicModal = new CulturalRelicModal();
                     DataRow dataRow=dataTable.Rows[i];
-                    culturalRelicModal.imagePath = dataRow["imagePath"].ToString();
+                    culturalRelicModal.imagePath = fromDbNull(dataRow["imagePath"].ToString()).ToString();
                     culturalRelicModal.culturalRelicName = dataRow["culturalRelicName"].ToString();
                     culturalRelicModal.englishiName = dataRow["englishiName"].ToString();
                     culturalRelicModal.cultrualRelicClassify = dataRow["cultrualRelicClassify"].ToString();
@@ -45,6 +46,11 @@ namespace DAL
                     return list;
             }
         }
+        private object fromDbNull(object db)
+        {
+            return db == DBNull.Value ? null : db;
+        }
+    
         
     }
 }

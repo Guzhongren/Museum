@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 
 namespace WebApplication1.Ashx
 {
@@ -19,17 +20,21 @@ namespace WebApplication1.Ashx
             List<string> listParams = new List<string>();
             listParams.Add(historyRelicTime);
             listParams.Add(historyRelicThing);
+            List<ModalHelper.CulturalRelicModal> listModal = new List<ModalHelper.CulturalRelicModal>();
             //判断是否为空
-            if(historyRelicTime==string.Empty&&historyRelicThing==string.Empty)
+            if(listParams[0]!=string.Empty && string.IsNullOrEmpty(listParams[1]))
             {
-                return;
+                context.Response.Write("未选定");
+                
             }
             else
             {
                 //开始查询
                 BLL.CulturalRelicBLL searchRelic =new  BLL.CulturalRelicBLL();
-                searchRelic.SelectResult(listParams);
-
+                listModal=searchRelic.SelectResult(listParams);
+                var json = new JavaScriptSerializer();
+                var obj=json.Serialize(listModal);
+                context.Response.Write(obj);
             }
             
             
@@ -46,3 +51,25 @@ namespace WebApplication1.Ashx
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
