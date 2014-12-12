@@ -13,7 +13,7 @@ require(["esri/map",
     function (Map, DynamicLayer,LocateButton) {
         //加载地图
         map = new Map("map", {
-            center: [103.40, 36.05],
+            center: [103.8343, 36.0611],
             zoom: 10,
             basemap: "streets"
         });
@@ -24,9 +24,10 @@ require(["esri/map",
         },"divLocateButton");
         locateButton.startup();
 
-        map.on("Load", function () {
-            consolse.log("已加载地图");
-        })
+        //不能加 ，加上之后页面地图不显示
+        //map.on("Load", function () {
+        //    consolse.log("已加载地图");
+        //});
     });
 
 //查询事件处理
