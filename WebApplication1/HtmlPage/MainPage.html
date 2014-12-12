@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="http://localhost/arcgis_js_v38_sdk/arcgis_js_api/library/3.8/3.8/js/dojo/dijit/themes/tundra/tundra.css" />
     <link rel="stylesheet" type="text/css" href="http://localhost/arcgis_js_v38_sdk/arcgis_js_api/library/3.8/3.8/js/esri/css/esri.css" />
     <!--<script src="JavaScript/jsapi_vsdoc12_v38.js"></script>-->
-    <script type="text/javascript">djConfig = { isDebug: true };</script>
+    <!--<script type="text/javascript">djConfig = { isDebug: true };</script>-->
     <script type="text/Javascript" src="http://localhost/arcgis_js_v38_sdk/arcgis_js_api/library/3.8/3.8/init.js">
 </script>
 
@@ -43,56 +43,47 @@
                         <input class="btn-success" type="button" value="搜索">
                     </form>
                     <ul class="nav pull-right">
-                        <li><a>告诉我们</a></li>
+                        <li><a href ="#divResult" data-toggle="modal">告诉我们</a></li>
                         <li><a>GIS</a></li>
-                    </ul>
+                    </ul>                    
                 </div>
             </div>
         </div>
+    </div>
+    <!--弹出表单设计-->
+    <div id="info" class="modal hide">
+        <div class="modal-header">查询结果列表</div>
+        <div class="modal-body">
+            <table id="tbInfo" class="table-bordered" >
+
+            </table>
+        </div>
+        <div class="modal-footer"><input type="button" value="取消" onclick="$('#info').toggle()" /></div>
+        
     </div>
 
     <div id="map">
         <div id="divLocateButton"></div>
         <div id="Tab1" >
             <h1 align="center">查询功能</h1>
-            <div ><label for="txtQueryTime"><h3>查询年代</h3></label><select id='txtQueryTime' class="QueryControl"><option selected="selected">隋</option><option>唐</option><option>宋</option><option>元</option><option>明</option><option>清</option></select></div>
-            <div ><label for="txtQueryRelic"><h3>查询名称</h3></label><select id="txtQueryRelic" class="QueryControl"></select></div>
+            <div ><label for="txtQueryTime">查询年代</label><select id='txtQueryTime' class="QueryControl"><option selected="selected">商</option><option>唐</option><option>宋</option><option>元</option><option>明</option><option>清</option></select></div>
+            <div ><label for="txtQueryRelic">查询名称</label><select id="txtQueryRelic" class="QueryControl"></select></div>
             <div><input type="button" id="btnSearchRelic"  class="btn btn-block" value="搜索"/></div>
         </div>
         <div id="Tab2">Tab2</div>
         <div id="Tab3">Tab3</div>
     </div>
+  
     <script type="text/javascript">
-        $(function () {
-            $("#btnSearchRelic").on('click', function () {
-                var relicTimeToAshx = $("#txtQueryTime option:selected").text();
-                var relicThingToAshx = $("#txtQueryRelic option:selected").text();
-                if (relicTimeToAshx == "" || relicThingToAshx == "")
-                {
-                    $("btnSearchRelic").css("disabled", "false");
-                    alert("请先选择年代和文物名称！");
-                }
-                else {
-                    $.ajax("../Ashx/SearchHistoryRelic.ashx?RelicTimeToAshx=" + relicTimeToAshx + "&RelicThingToAshx=" + relicThingToAshx, {
-                        type: "post",
-                        //输出为json,
-                        dataType: "json",
-                        success: function (restext) {
-                            alert(restext);
-
-
-                        }
-                    })
-                }
-                
-            })
-        });
+       
     </script>
 
     //js文件
-    <script src="../JavaScript/MapDocument.js"></script>
+    
     <script src="../Script/MapScript.js"></script>
     //Tal1界面操作
     <script src="../JavaScript/CreateHistoryRelicOption.js"></script>
+    //地图操作
+    <script src="../JavaScript/MapDocument.js"></script>
 </body>
 </html>

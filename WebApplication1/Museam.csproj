@@ -2666,6 +2666,10 @@
       <Project>{f7b491a5-6043-425d-99dc-4a14d5e4be55}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{a2c0d137-d86c-4d03-8186-e3acd4ec7a1f}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ModalHelper\ModalHelper.csproj">
       <Project>{e9e9da86-1c01-484f-95e0-0672164b60a2}</Project>
       <Name>ModalHelper</Name>
