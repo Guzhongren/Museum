@@ -23,7 +23,6 @@ require(["esri/map",
             scale:11
         },"divLocateButton");
         locateButton.startup();
-
         //不能加 ，加上之后页面地图不显示
         //map.on("Load", function () {
         //    consolse.log("已加载地图");

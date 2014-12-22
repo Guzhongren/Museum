@@ -54,8 +54,18 @@
     <div id="info" class="modal hide">
         <div class="modal-header">查询结果列表</div>
         <div class="modal-body">
-            <table id="tbInfo" class="table-bordered" >
-                <tr><th>缩略图</th></tr><tr><th>名称</th></tr><tr><th>分类</th></tr><tr><th>编码</th></tr><tr><th>材质</th></tr><tr><th>馆藏位置</th></tr><tr><th>产地</th></tr><tr><th>制造时间</th></tr><tr><th>出土时间</th></tr><tr><th>简介</th></tr>
+            <table id="tbInfo" class="table table-striped table-bordered" >
+                <tr>
+                    <th>名称</th>
+                    <th>分类</th>
+                    <th>编码</th>
+                    <th>材质</th>
+                    <th>馆藏位置</th>
+                    <th>产地</th>
+                    <th>制造时间</th>
+                    <th>出土时间</th>
+                   <th>简介</th>
+                </tr>
             </table>
         </div>
         <div class="modal-footer"><input type="button" value="取消" onclick="$('#info').toggle()" /></div>
@@ -66,7 +76,7 @@
         <div id="divLocateButton"></div>
         <div id="Tab1" >
             <h1 align="center">查询功能</h1>
-            <div ><label for="txtQueryTime">查询年代</label><select id='txtQueryTime' class="QueryControl"><option selected="selected">商</option><option>唐</option><option>宋</option><option>元</option><option>明</option><option>清</option></select></div>
+            <div ><label for="txtQueryTime">查询年代</label><select id='txtQueryTime' class="QueryControl"><option selected="selected">隋</option><option>唐</option><option>宋</option><option>元</option><option>明</option><option>清</option></select></div>
             <div ><label for="txtQueryRelic">查询名称</label><select id="txtQueryRelic" class="QueryControl"></select></div>
             <div><input type="button" id="btnSearchRelic"  class="btn btn-block" value="搜索"/></div>
         </div>

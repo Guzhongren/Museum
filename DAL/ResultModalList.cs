@@ -13,13 +13,14 @@ namespace DAL
     public class ResultModalList
     {
         private List<ModalHelper.CulturalRelicModal> list = new List<ModalHelper.CulturalRelicModal>();
-        private string sql = "select * from historicalrelic where convert(nvarchar(255),cultrualrelicbirthdatatime) =@CulturalRelicDataTime and convert(nvarchar(255),culturalrelicname)=@CulturalRelicName";
+        private string sql = "select * from historicalrelic where cultrualrelicbirthdatatime =@CulturalRelicDataTime and culturalrelicname =@CulturalRelicName";
+        //private string sql = "select * from historicalrelic where convert(nvarchar(255),cultrualrelicbirthdatatime) =@CulturalRelicDataTime and convert(nvarchar(255),culturalrelicname)=@CulturalRelicName";
         public List<ModalHelper.CulturalRelicModal> getResult(List<string> sqlParams)
         {
-            DataTable dataTable = ModalHelper.SqlHelper.ExecuteDataTabel(sql, new SqlParameter("@CulturalRelicDataTime", sqlParams[0]),
-                                                                              new SqlParameter("@CulturalRelicName", sqlParams[1]));
+            DataTable dataTable = ModalHelper.SqlHelper.ExecuteDataTabel(sql, new NpgsqlParameter("@CulturalRelicDataTime", sqlParams[0]),
+                                                                              new NpgsqlParameter("@CulturalRelicName", sqlParams[1]));
             //sql写死执行
-            //DataTable dataTable = ModalHelper.SqlHelper.ExecuteDataTableTest();
+            //DataTable dataTable = ModalHelper.SqlHelper.ExecuteDataTableTest();s
             int rowCount = dataTable.Rows.Count;
             if (rowCount <= 0)
             {
